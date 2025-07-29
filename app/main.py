@@ -5,7 +5,7 @@ def cache(func: Callable) -> Callable:
     memory = {}
 
     def wrapper(*args) -> Any:
-        if memory.get(args, False) or memory.get(args) == 0:
+        if args in memory:
             print("Getting from cache")
             return memory.get(args)
         else:
